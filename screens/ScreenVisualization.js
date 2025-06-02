@@ -30,6 +30,22 @@ export default function ScreenVisualization({ navigation }) {
       <Text>Umidade: {lastEntry.humidity}%</Text>
       <Text>Inclinação: {lastEntry.inclination}°</Text>
       <Text style={{ fontWeight: 'bold', marginTop: 10 }}>Risco: {risk}</Text>
+
+      {risk === 'Alto' && (
+        <View style={{
+          backgroundColor: '#FFCCCC',
+          padding: 10,
+          borderRadius: 8,
+          marginVertical: 15,
+          borderWidth: 1,
+          borderColor: '#FF0000'
+        }}>
+          <Text style={{ color: '#B00000', fontWeight: 'bold', textAlign: 'center' }}>
+            ⚠️ Atenção: Risco alto de deslizamento! Tome precauções imediatas.
+          </Text>
+        </View>
+      )}
+
       <Button title="Ver Histórico" onPress={() => navigation.navigate('Histórico')} />
     </View>
   );

@@ -29,9 +29,9 @@ const styles = StyleSheet.create({
     alignItems: 'center', // centraliza elementos internamente
   },
   logo: {
-    width: 100,
-    height: 100,
-    marginBottom: 20,
+    width: 150,
+    height: 150,
+    marginBottom: 30,
   },
   title: {
     fontSize: 32,

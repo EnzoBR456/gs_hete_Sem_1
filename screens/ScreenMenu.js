@@ -28,7 +28,7 @@ export default function MenuScreen({ navigation }) {
 
     <View style={styles.card}>
       <Image source={require('../assets/mitigacao.png')} style={styles.icon} />
-      <TouchableOpacity onPress={() => navigation.navigate('Mitigacão')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Ações')}>
         <Text style={styles.buttonText}>AÇÕES DE MITIGAÇÃO</Text>
       </TouchableOpacity>
     </View>
