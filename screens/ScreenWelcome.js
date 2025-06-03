@@ -20,13 +20,13 @@ export default function ScreenWelcome({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center', // centraliza verticalmente
-    alignItems: 'center',     // centraliza horizontalmente
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 20,
     backgroundColor: '#fff',
   },
   content: {
-    alignItems: 'center', // centraliza elementos internamente
+    alignItems: 'center',
   },
   logo: {
     width: 150,

@@ -14,21 +14,16 @@ export default function ScreenVisualization({ navigation }) {
     fetchData();
   }, []);
 
-  const getRiskLevel = (humidity, inclination) => {
-    if (humidity > 80 && inclination > 30) return 'Alto';
-    if (humidity > 50 || inclination > 20) return 'Moderado';
-    return 'Baixo';
-  };
-
   if (!lastEntry) return <Text style={{ padding: 20 }}>Carregando dados...</Text>;
 
-  const risk = getRiskLevel(lastEntry.humidity, lastEntry.inclination);
+  const { humidity, inclination, city, risk } = lastEntry;
 
   return (
     <View style={{ padding: 20 }}>
       <Text style={{ fontSize: 20, marginBottom: 10 }}>Nível de Risco Atual</Text>
-      <Text>Umidade: {lastEntry.humidity}%</Text>
-      <Text>Inclinação: {lastEntry.inclination}°</Text>
+      <Text>Umidade: {humidity}%</Text>
+      <Text>Inclinação: {inclination}°</Text>
+      <Text>Cidade: {city}</Text>
       <Text style={{ fontWeight: 'bold', marginTop: 10 }}>Risco: {risk}</Text>
 
       {risk === 'Alto' && (

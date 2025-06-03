@@ -20,8 +20,10 @@ export default function ScreenHistory({ navigation }) {
       {history.map((item, index) => (
         <View key={index} style={{ borderBottomWidth: 1, paddingBottom: 5, marginBottom: 10 }}>
           <Text>{new Date(item.timestamp).toLocaleString()}</Text>
+          <Text>Cidade: {item.city}</Text>
           <Text>Umidade: {item.humidity}%</Text>
           <Text>Inclinação: {item.inclination}°</Text>
+          <Text>Risco: {item.risk}</Text>
         </View>
       ))}
       <Button title="Ver Ações de Mitigação" onPress={() => navigation.navigate('Ações')} />
