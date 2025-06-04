@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function ScreenVisualization({ navigation }) {
@@ -9,7 +9,17 @@ export default function ScreenVisualization({ navigation }) {
     const fetchData = async () => {
       const data = await AsyncStorage.getItem('monitoringData');
       const parsed = data ? JSON.parse(data) : [];
-      setLastEntry(parsed[parsed.length - 1]);
+      const latest = parsed[parsed.length - 1];
+      setLastEntry(latest);
+
+
+      if (latest && latest.risk === 'Alto') {
+        Alert.alert(
+          '⚠️ Alerta de Risco',
+          'Risco alto de deslizamento detectado! \nFique longe do local.',
+          [{ text: 'OK' }]
+        );
+      }
     };
     fetchData();
   }, []);
@@ -45,3 +55,4 @@ export default function ScreenVisualization({ navigation }) {
     </View>
   );
 }
+
