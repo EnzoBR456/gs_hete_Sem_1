@@ -3,12 +3,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Importação das telas
-import ScreenWelcome from './screens/ScreenWelcome';
-import ScreenMenu from './screens/ScreenMenu';
-import ScreenInsertion from './screens/ScreenInsertion';
-import ScreenVisualization from './screens/ScreenVisualization';
-import ScreenHistory from './screens/ScreenHistory';
-import ScreenAction from './screens/ScreenAction';
+import ScreenWelcome from './src/screens/ScreenWelcome';
+import ScreenMenu from './src/screens/ScreenMenu';
+import ScreenInsertion from './src/screens/ScreenInsertion';
+import ScreenVisualization from './src/screens/ScreenVisualization';
+import ScreenHistory from './src/screens/ScreenHistory';
+import ScreenAction from './src/screens/ScreenAction';
 
 export type RootStackParamList = {
   'Boas-vindas': undefined;
