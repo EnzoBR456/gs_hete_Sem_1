@@ -5,7 +5,7 @@ export default function ScreenWelcome({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.content}>
-        <Image source={require('../images/icon.png')} style={styles.logo} />
+        <Image source={require('../images/welcome.png')} style={styles.logo} />
         <Text style={styles.title}>
           Bem-vindo{'\n'}ao Alerta{'\n'}de{'\n'}Deslizamento
         </Text>
