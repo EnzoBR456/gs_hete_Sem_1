@@ -12,11 +12,10 @@ export default function ScreenVisualization({ navigation }) {
       const latest = parsed[parsed.length - 1];
       setLastEntry(latest);
 
-
-      if (latest && latest.risk === 'Alto') {
+      if (latest && latest.climate === 'Crítico') {
         Alert.alert(
-          '⚠️ Alerta de Risco',
-          'Risco alto de deslizamento detectado! \nFique longe do local.',
+          '⚠️ Clima Organizacional Crítico',
+          'O ambiente de trabalho apresenta sinais preocupantes.',
           [{ text: 'OK' }]
         );
       }
@@ -26,17 +25,18 @@ export default function ScreenVisualization({ navigation }) {
 
   if (!lastEntry) return <Text style={{ padding: 20 }}>Carregando dados...</Text>;
 
-  const { humidity, inclination, city, risk } = lastEntry;
+  const { communication, collaboration, city, climate } = lastEntry;
 
   return (
     <View style={{ padding: 20 }}>
-      <Text style={{ fontSize: 20, marginBottom: 10 }}>Nível de Risco Atual</Text>
-      <Text>Umidade: {humidity}%</Text>
-      <Text>Inclinação: {inclination}°</Text>
-      <Text>Cidade: {city}</Text>
-      <Text style={{ fontWeight: 'bold', marginTop: 10 }}>Risco: {risk}</Text>
+      <Text style={{ fontSize: 20, marginBottom: 10 }}>Clima Organizacional Atual</Text>
 
-      {risk === 'Alto' && (
+      <Text>Comunicação: {communication}%</Text>
+      <Text>Colaboração: {collaboration}%</Text>
+      <Text>Cidade: {city}</Text>
+      <Text style={{ fontWeight: 'bold', marginTop: 10 }}>Clima: {climate}</Text>
+
+      {climate === 'Crítico' && (
         <View style={{
           backgroundColor: '#FFCCCC',
           padding: 10,
@@ -46,7 +46,7 @@ export default function ScreenVisualization({ navigation }) {
           borderColor: '#FF0000'
         }}>
           <Text style={{ color: '#B00000', fontWeight: 'bold', textAlign: 'center' }}>
-            ⚠️ Atenção: Risco alto de deslizamento! Tome precauções imediatas.
+            ⚠️ Atenção: Clima crítico! Ações urgentes recomendadas.
           </Text>
         </View>
       )}
@@ -55,4 +55,3 @@ export default function ScreenVisualization({ navigation }) {
     </View>
   );
 }
-

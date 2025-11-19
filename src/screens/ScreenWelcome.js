@@ -7,7 +7,7 @@ export default function ScreenWelcome({ navigation }) {
       <View style={styles.content}>
         <Image source={require('../images/welcome.png')} style={styles.logo} />
         <Text style={styles.title}>
-          Bem-vindo{'\n'}ao Alerta{'\n'}de{'\n'}Deslizamento
+          Bem-vindo{'\n'}ao Monitor{'\n'}de Clima{'\n'}Organizacional
         </Text>
         <View style={styles.buttonWrapper}>
           <Button title="COMEÇAR" onPress={() => navigation.navigate('Menu')} />
@@ -43,3 +43,4 @@ const styles = StyleSheet.create({
     width: 150,
   },
 });
+

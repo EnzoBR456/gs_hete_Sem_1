@@ -5,31 +5,31 @@ import { Picker } from '@react-native-picker/picker';
 
 export default function ScreenInsertion({ navigation }) {
   const [city, setCity] = useState('');
-  const [humidity, setHumidity] = useState('');
-  const [inclination, setInclination] = useState('');
+  const [communication, setCommunication] = useState('');
+  const [collaboration, setCollaboration] = useState('');
 
-  const getRiskLevel = (humidity, inclination) => {
-    if (humidity > 60 && inclination > 30) return 'Alto';
-    if (humidity > 40 || inclination > 20) return 'Moderado';
-    return 'Baixo';
+  const getClimateStatus = (communication, collaboration) => {
+    if (communication >= 70 && collaboration >= 70) return 'Favorável';
+    if (communication >= 40 || collaboration >= 40) return 'Instável';
+    return 'Crítico';
   };
 
   const saveData = async () => {
-    if (!humidity || !inclination || !city) {
+    if (!communication || !collaboration || !city) {
       Alert.alert('Erro', 'Por favor, preencha todos os campos.');
       return;
     }
 
-    const parsedHumidity = parseFloat(humidity);
-    const parsedInclination = parseFloat(inclination);
-    const risk = getRiskLevel(parsedHumidity, parsedInclination);
+    const parsedCommunication = parseFloat(communication);
+    const parsedCollaboration = parseFloat(collaboration);
+    const climate = getClimateStatus(parsedCommunication, parsedCollaboration);
 
     const data = {
-      humidity: parsedHumidity,
-      inclination: parsedInclination,
+      communication: parsedCommunication,
+      collaboration: parsedCollaboration,
       city,
       timestamp: new Date().toISOString(),
-      risk,
+      climate,
     };
 
     try {
@@ -38,7 +38,7 @@ export default function ScreenInsertion({ navigation }) {
       parsedData.push(data);
       await AsyncStorage.setItem('monitoringData', JSON.stringify(parsedData));
       Alert.alert('Sucesso', 'Dados salvos com sucesso');
-      navigation.navigate('Riscos');
+      navigation.navigate('Clima');
     } catch (error) {
       Alert.alert('Erro', 'Falha ao salvar os dados');
     }
@@ -46,7 +46,7 @@ export default function ScreenInsertion({ navigation }) {
 
   return (
     <ScrollView contentContainerStyle={{ padding: 20 }}>
-      <Text style={{ fontSize: 20, marginBottom: 10 }}>Inserir Dados Ambientais</Text>
+      <Text style={{ fontSize: 20, marginBottom: 10 }}>Inserir Indicadores de Clima Organizacional</Text>
 
       <Text>Selecione sua Cidade</Text>
       <View style={{ borderWidth: 1, marginVertical: 10 }}>
@@ -60,25 +60,23 @@ export default function ScreenInsertion({ navigation }) {
         </Picker>
       </View>
 
-      <Text>Umidade do Solo (%)</Text>
+      <Text>Qualidade da Comunicação (%)</Text>
       <TextInput
         keyboardType="numeric"
-        value={humidity}
-        onChangeText={setHumidity}
+        value={communication}
+        onChangeText={setCommunication}
         style={{ borderWidth: 1, padding: 10, marginVertical: 10 }}
       />
 
-      <Text>Inclinação (graus)</Text>
+      <Text>Nível de Colaboração da Equipe (%)</Text>
       <TextInput
         keyboardType="numeric"
-        value={inclination}
-        onChangeText={setInclination}
+        value={collaboration}
+        onChangeText={setCollaboration}
         style={{ borderWidth: 1, padding: 10, marginVertical: 10 }}
       />
 
-      <Button title="Salvar e Ver Riscos" onPress={saveData} />
+      <Button title="Salvar e Ver Clima" onPress={saveData} />
     </ScrollView>
   );
 }
-
-

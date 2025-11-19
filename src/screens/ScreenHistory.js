@@ -16,17 +16,20 @@ export default function ScreenHistory({ navigation }) {
 
   return (
     <ScrollView contentContainerStyle={{ padding: 20 }}>
-      <Text style={{ fontSize: 20, marginBottom: 10 }}>Histórico de Monitoramento</Text>
+      <Text style={{ fontSize: 20, marginBottom: 10 }}>Histórico do Clima Organizacional</Text>
+
       {history.map((item, index) => (
         <View key={index} style={{ borderBottomWidth: 1, paddingBottom: 5, marginBottom: 10 }}>
           <Text>{new Date(item.timestamp).toLocaleString()}</Text>
           <Text>Cidade: {item.city}</Text>
-          <Text>Umidade: {item.humidity}%</Text>
-          <Text>Inclinação: {item.inclination}°</Text>
-          <Text>Risco: {item.risk}</Text>
+          <Text>Comunicação: {item.communication}%</Text>
+          <Text>Colaboração: {item.collaboration}%</Text>
+          <Text>Clima: {item.climate}</Text>
         </View>
       ))}
-      <Button title="Ver Ações de Mitigação" onPress={() => navigation.navigate('Ações')} />
+
+      <Button title="Ver Ações de Melhoria" onPress={() => navigation.navigate('Ações')} />
     </ScrollView>
   );
 }
+

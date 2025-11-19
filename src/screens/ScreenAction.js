@@ -7,12 +7,14 @@ export default function ScreenAction() {
 
   return (
     <ScrollView contentContainerStyle={{ padding: 20 }}>
-      <Text style={{ fontSize: 20, marginBottom: 10 }}>AÇÕES DE MITIGAÇÃO</Text>
-      <Text style={{ marginBottom: 10 }}>• Zonas de exclusão para construção.</Text>
-      <Text style={{ marginBottom: 10 }}>• Reflorestamento e plantio de vegetação para estabilizar o solo.</Text>
-      <Text style={{ marginBottom: 10 }}>• Construção de muros de contenção e canaletas.</Text>
-      <Text style={{ marginBottom: 10 }}>• Monitoramento contínuo da área.</Text>
-      <Text style={{ marginBottom: 10 }}>• Drenos horizontais profundos para escoar água do subsolo.</Text>
+      <Text style={{ fontSize: 20, marginBottom: 10 }}>AÇÕES DE MELHORIA</Text>
+
+      <Text style={{ marginBottom: 10 }}>• Promover feedbacks rápidos e construtivos.</Text>
+      <Text style={{ marginBottom: 10 }}>• Criar rituais semanais de alinhamento das equipes.</Text>
+      <Text style={{ marginBottom: 10 }}>• Melhorar os canais de comunicação interna.</Text>
+      <Text style={{ marginBottom: 10 }}>• Estimular colaboração entre áreas diferentes.</Text>
+      <Text style={{ marginBottom: 10 }}>• Estabelecer metas claras e compartilhadas.</Text>
+
       <Button title="Voltar ao Menu" onPress={() => navigation.navigate('Menu')} />
     </ScrollView>
   );

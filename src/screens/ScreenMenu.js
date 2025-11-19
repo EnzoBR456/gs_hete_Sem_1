@@ -8,28 +8,28 @@ export default function MenuScreen({ navigation }) {
     <View style={styles.card}>
       <Image source={require('../images/Insercao.png')} style={styles.icon} />
       <TouchableOpacity onPress={() => navigation.navigate('Inserção')}>
-        <Text style={styles.buttonText}>INSERÇÃO DE DADOS</Text>
+        <Text style={styles.buttonText}>INSERIR INDICADORES</Text>
       </TouchableOpacity>
     </View>,
 
     <View style={styles.card}>
       <Image source={require('../images/risco.png')} style={styles.icon} />
-      <TouchableOpacity onPress={() => navigation.navigate('Riscos')}>
-        <Text style={styles.buttonText}>VISUALIZAÇÃO DE RISCOS</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('Clima')}>
+        <Text style={styles.buttonText}>CLIMA ORGANIZACIONAL</Text>
       </TouchableOpacity>
     </View>,
 
     <View style={styles.card}>
       <Image source={require('../images/historico.png')} style={styles.icon} />
       <TouchableOpacity onPress={() => navigation.navigate('Histórico')}>
-        <Text style={styles.buttonText}>HISTÓRICO DE MONITORAMENTO</Text>
+        <Text style={styles.buttonText}>HISTÓRICO</Text>
       </TouchableOpacity>
     </View>,
 
     <View style={styles.card}>
       <Image source={require('../images/mitigacao.png')} style={styles.icon} />
       <TouchableOpacity onPress={() => navigation.navigate('Ações')}>
-        <Text style={styles.buttonText}>AÇÕES DE MITIGAÇÃO</Text>
+        <Text style={styles.buttonText}>AÇÕES DE MELHORIA</Text>
       </TouchableOpacity>
     </View>
   ];
@@ -85,4 +85,3 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-
